@@ -1,0 +1,192 @@
+SOP: Gửi Báo Cáo Excel Qua Email Bằng Python
+1. Mục đích
+Tự động lấy file Excel mới nhất trong thư mục báo cáo, chụp hình nội dung, đính kèm hình và file vào email, rồi gửi đến danh sách người nhận chính và người xem (CC).
+
+2. Cách Sử Dụng
+Bước 1: Chuẩn bị file
+Đảm bảo thư mục E:\Report\WIP_ReportDetail\Report\ chứa:
+
+Các file Excel báo cáo (*.xlsx)
+
+File recipients.txt: chứa danh sách email người nhận, mỗi dòng 1 email.
+
+File cc.txt: chứa danh sách email CC (người xem), mỗi dòng 1 email.
+
+Bước 2: Cấu hình các giá trị
+Người dùng có thể thay đổi các thông số chính sau:
+
+Vị trí trong mã	Ý nghĩa	Hướng dẫn thay đổi
+smtp_server = "172.20.179.74"	Địa chỉ máy chủ SMTP nội bộ	Thay bằng địa chỉ server email của bạn nếu khác
+smtp_port = 25	Port gửi email (thường là 25, 587 hoặc 465)	Thay nếu hệ thống bạn yêu cầu port khác
+from_addr = "QMS_FA1_Notice@quantacn.com"	Email người gửi	Thay bằng email cá nhân hoặc phòng ban
+to_addrs = read_emails_from_file(...)	Đường dẫn file chứa email người nhận	Sửa file recipients.txt để thêm/bớt người nhận
+cc_addrs = read_emails_from_file(...)	Đường dẫn file chứa email CC	Sửa file cc.txt để thêm/bớt người xem
+excel_dir = r"E:\Report\WIP_ReportDetail\Report"	Đường dẫn chứa các file Excel	Thay đổi nếu thư mục lưu báo cáo khác
+
+3. Quy trình hoạt động của mã
+Đọc danh sách email từ hai file .txt
+
+Tìm file Excel mới nhất trong thư mục báo cáo
+
+Mở file Excel, lấy nội dung chính ở Sheet 1
+
+Chụp lại dữ liệu dưới dạng ảnh, lưu vào bộ nhớ tạm
+
+Soạn nội dung email dạng HTML, chèn ảnh vào phần thân
+
+Gắn file Excel vào email
+
+Gửi email qua máy chủ SMTP
+
+4. Lưu ý khi thay đổi nội dung email
+Nội dung email HTML nằm trong biến html_body
+
+Bạn có thể thay đổi phần chào hỏi, tiêu đề, thông báo, màu sắc...
+Ví dụ:
+
+<p><b><span style="font-size:16pt;">Dear team:</span></b></p>
+<p>Below is the WIP status for today.</p>
+5. Yêu cầu cài đặt
+Trước khi chạy mã này, đảm bảo máy bạn đã cài:
+
+Python 3.x
+
+Thư viện pywin32, smtplib, email (mặc định có trong Python)
+
+Máy tính phải cài Microsoft Excel để xử lý COM Excel
+
+Cài pywin32 (nếu chưa có):
+
+pip install pywin32
+6. Kiểm tra lỗi
+File Excel không tồn tại: kiểm tra lại đường dẫn excel_dir
+
+Lỗi gửi email: kiểm tra IP smtp_server, hoặc firewall/chặn port 25
+
+Lỗi COM Excel: kiểm tra Office đã được cài và cấp quyền cho script chạy Excel
+
+Có thể chạy file test send mail 9 ( đã được thử nghiệm và hoàn thiện chạy trên máy cá nhân ok)
+
+
+----------------------------------------------TEST_SEND_MAIL_V9.py--------------------------------------------
+#send mail và ảnh ok, nhưng giao diện chưa được đẹp lắm cần sửa lại
+import win32com.client
+import datetime
+import os
+import time
+
+def read_emails_from_file(filename):
+    with open(filename, 'r') as file:
+        emails = file.readlines()
+    return [email.strip() for email in emails if email.strip()]
+
+timeStart = datetime.datetime.now()
+
+# Đường dẫn file Excel và ảnh
+excel_path = os.path.join(
+    r"C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report",
+    f"myreport_{timeStart.strftime('%Y%m%d%H')}.xlsx"
+)
+
+
+image_path = os.path.join(
+    r"C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report",
+    timeStart.strftime('screenshot_%Y%m%d%H') + ".png"
+)
+
+if not os.path.exists(excel_path):
+    print("❌ File Excel không tồn tại.")
+    exit()
+
+# Mở Excel
+excel = win32com.client.Dispatch("Excel.Application")
+excel.Visible = False
+workbook = excel.Workbooks.Open(excel_path, ReadOnly=True)
+sheet = workbook.Sheets(1)
+
+# Lấy tên các sheet trước khi workbook bị đóng
+sheet_names = [sh.Name for sh in workbook.Sheets]
+sheet_titles = "&".join(sheet_names[:2]) if len(sheet_names) >= 2 else sheet_names[0]
+sheet_description = f"以下为 {sheet_titles} WIP 状况."
+sheet_summary = f"{sheet_titles} WIP 状况："
+
+# Copy vùng dữ liệu thành hình ảnh
+used_range = sheet.UsedRange
+used_range.CopyPicture(Format=2)
+
+# Tính kích thước và dán vào biểu đồ
+left = used_range.Left
+top = used_range.Top
+width = used_range.Width
+height = used_range.Height
+scale_factor = 1.3
+
+chart_object = sheet.ChartObjects().Add(
+    left, top,
+    width * scale_factor,
+    height * scale_factor
+)
+chart = chart_object.Chart
+chart.Paste()
+time.sleep(1)  # Chờ dán
+
+# Xuất ảnh và xóa biểu đồ tạm
+chart.Export(image_path)
+chart_object.Delete()
+
+# Đóng Excel
+workbook.Close(False)
+excel.Quit()
+
+# Gửi email
+outlook = win32com.client.Dispatch('Outlook.Application')
+mail = outlook.CreateItem(0)
+mail.To = "; ".join(read_emails_from_file("recipients.txt"))
+mail.CC = "; ".join(read_emails_from_file("cc.txt"))
+mail.Subject =  "QMH FATP OCT Performance_" + datetime.datetime.now().strftime('%Y-%m-%d')
+
+cutoff_time = timeStart.strftime("%Y-%m-%d %H:%M")
+
+html_body = f"""
+<html>
+  <body>
+    <p style="font-size:10pt;font-family:Calibri,sans-serif;margin:0;">
+      <b><span style="font-size:16pt;font-family:Times;" lang="en-US">Dear all:</span></b>
+    </p>
+
+    <p style="font-size:10pt;font-family:Calibri,sans-serif;margin:0;">&nbsp;</p>
+
+    <p style="font-size:10pt;font-family:Calibri,sans-serif;margin:0;">
+      <span style="font-size:14pt;font-family:Times;" lang="en-US">
+        {sheet_description} Cut off time: 
+        <span style="color:black;">{cutoff_time.split()[0]}</span> 
+        <b style="color:red;font-size:16pt;">{cutoff_time.split()[1]}</b> 
+        <span style="font-size:14pt;font-family:Times;color:black;">Thanks!</span>
+      </span>
+    </p>
+
+    <p style="font-size:10pt;font-family:Calibri,sans-serif;margin:0;">&nbsp;</p>
+
+    <p style="margin:0cm; margin-bottom:.0001pt">
+      <b><span style="font-size: 18pt; font-family: Arial, sans-serif, serif, EmojiFont; color: blue;" lang="VI">
+        ({sheet_titles}) {sheet_summary}
+      </span></b>
+    </p>
+
+    <img src="cid:excel_img">
+  </body>
+</html>
+"""
+
+mail.HTMLBody = html_body
+mail.Attachments.Add(excel_path)
+attachment = mail.Attachments.Add(image_path)
+attachment.PropertyAccessor.SetProperty(
+    "http://schemas.microsoft.com/mapi/proptag/0x3712001F", "excel_img"
+)
+mail.Send()
+
+
+
+
+
