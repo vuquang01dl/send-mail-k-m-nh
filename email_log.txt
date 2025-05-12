@@ -1,0 +1,43 @@
+[2025-05-08 18:25:04] \u2705 \u0110ã tìm th\u1ea5y file Excel.
+[2025-05-08 18:25:09] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-08 18:25:09] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-08 18:25:09] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-08 18:25:35] \u2705 \u0110ã tìm th\u1ea5y file Excel.
+[2025-05-08 18:25:38] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-08 18:25:38] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-08 18:25:38] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 08:40:57] \u2705 \u0110ã tìm th\u1ea5y file Excel.
+[2025-05-09 08:41:01] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 08:41:01] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 08:41:01] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 08:44:38] \u2705 \u0110ã tìm th\u1ea5y file Excel.
+[2025-05-09 08:44:41] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 08:44:41] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 08:44:41] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 08:59:32] \u274c File Excel không t\u1ed3n t\u1ea1i.
+[2025-05-09 09:00:41] \u274c File Excel không t\u1ed3n t\u1ea1i.
+[2025-05-09 09:01:12] \u2705 \u0110ã tìm th\u1ea5y file Excel.
+[2025-05-09 09:17:16] \u2705 \u0110ã tìm th\u1ea5y file Excel: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509093600.xlsx
+[2025-05-09 09:17:18] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 09:17:18] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 09:17:18] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 09:23:13] \u2705 \u0110ã tìm th\u1ea5y file Excel: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509093600.xlsx
+[2025-05-09 09:23:18] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 09:23:18] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 09:23:18] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 09:37:34] \u2705 \u0110ã tìm th\u1ea5y file Excel: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509093600.xlsx
+[2025-05-09 09:37:37] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 09:37:37] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 09:37:37] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 09:51:31] \u2705 \u0110ã tìm th\u1ea5y file Excel: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509093600.xlsx
+[2025-05-09 09:51:34] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 09:51:34] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 09:51:34] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 09:55:39] \u2705 \u0110ã tìm th\u1ea5y file Excel: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509093600.xlsx
+[2025-05-09 09:55:42] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 09:55:42] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 09:55:42] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.
+[2025-05-09 09:58:10] \u2705 \u0110ã tìm th\u1ea5y file Excel: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509093600.xlsx
+[2025-05-09 09:58:13] \u2705 \u0110ã t\u1ea1o \u1ea3nh t\u1eeb Excel.
+[2025-05-09 09:58:13] \u2705 \u0110ã g\u1eedi email thành công.
+[2025-05-09 09:58:13] \U0001f9f9 \u0110ã xóa \u1ea3nh sau khi g\u1eedi mail.

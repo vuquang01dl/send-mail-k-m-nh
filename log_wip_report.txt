@@ -1,0 +1,27 @@
+2025-05-12 09:20:22,446 - INFO - === Start executing the email sending script ===
+2025-05-12 09:20:22,446 - INFO - Read recipient list and CC.
+2025-05-12 09:20:22,450 - INFO - Found the latest Excel file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\myreport_2025050908.xlsx
+2025-05-12 09:20:31,836 - INFO - Copied Excel content as HTML successfully.
+2025-05-12 09:20:31,897 - INFO - Email sent successfully using Outlook.
+2025-05-12 09:20:31,897 - INFO - === End of email sending script ===
+2025-05-12 16:38:36,858 - INFO - === Start executing the email sending script ===
+2025-05-12 16:38:36,860 - INFO - Found the latest Excel file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509103600.xlsx
+2025-05-12 16:38:39,636 - INFO - Saved HTML to C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\HTML_EXPORT\summary_20250512163836.html
+2025-05-12 16:38:39,831 - INFO - Read recipient list and CC list successfully.
+2025-05-12 16:38:39,948 - INFO - Attached file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509103600.xlsx
+2025-05-12 16:38:40,050 - INFO - Email sent successfully via Outlook.
+2025-05-12 16:38:40,108 - INFO - === End of email sending script ===
+2025-05-12 16:42:04,328 - INFO - === Start executing the email sending script ===
+2025-05-12 16:42:04,330 - INFO - Found the latest Excel file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509103600.xlsx
+2025-05-12 16:42:06,045 - INFO - Saved HTML to C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\HTML_EXPORT\summary_20250512164204.html
+2025-05-12 16:42:06,224 - INFO - Read recipient list and CC list successfully.
+2025-05-12 16:42:06,318 - INFO - Attached file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509103600.xlsx
+2025-05-12 16:42:06,428 - INFO - Email sent successfully via Outlook.
+2025-05-12 16:42:06,524 - INFO - === End of email sending script ===
+2025-05-12 16:47:08,286 - INFO - === Start executing the email sending script ===
+2025-05-12 16:47:08,286 - INFO - Found the latest Excel file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509103600.xlsx
+2025-05-12 16:47:10,672 - INFO - Saved HTML to C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\HTML_EXPORT\summary_20250512164708.html
+2025-05-12 16:47:10,932 - INFO - Read recipient list and CC list successfully.
+2025-05-12 16:47:11,265 - INFO - Attached file: C:\Users\V5030587\OneDrive - quantacn.com\Desktop\excel_report\FATP_WIP_Report_Detail_20250509103600.xlsx
+2025-05-12 16:47:11,368 - INFO - Email sent successfully via Outlook.
+2025-05-12 16:47:11,532 - INFO - === End of email sending script ===
