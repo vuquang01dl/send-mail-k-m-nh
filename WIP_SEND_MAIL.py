@@ -34,6 +34,7 @@ logging.basicConfig(
 
 logging.info("=== Start executing the email sending script ===")
 timeStart = datetime.now()
+today_for_subject = timeStart.strftime("%Y%m%d")
 
 # ======================
 # 🔧 HÀM XỬ LÝ FILE
@@ -69,6 +70,21 @@ def convert_excel_to_html_with_format(source_path, target_path, sheet_name="汇�
             sheet.Visible = True
         wb.Close(False)
         excel.Quit()
+
+def clear_html_export_folder():
+    if os.path.exists(HTML_EXPORT):
+        for filename in os.listdir(HTML_EXPORT):
+            file_path = os.path.join(HTML_EXPORT, filename)
+            try:
+                if os.path.isfile(file_path):
+                    os.remove(file_path)
+                elif os.path.isdir(file_path):
+                    import shutil
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                logging.warning(f"Unable to delete {file_path}. Reason: {e}")
+        logging.info("Cleared old HTML export files.")
+
 
 # ======================
 # 📧 GỬI MAIL QUA OUTLOOK
@@ -124,7 +140,7 @@ def send_email_with_html_content(html_main_path, recipients, cc_recipients, atta
     """
 
     msg = EmailMessage()
-    msg['Subject'] = "FATP WIP Report"
+    msg['Subject'] = f"FATP WIP 分布状况{today_for_subject}"
     msg['From'] = formataddr(("QMS FA1 Notice", from_addr))
     msg['To'] = ", ".join(recipients)
     msg['Cc'] = ", ".join(cc_recipients)
@@ -158,6 +174,8 @@ try:
     if not os.path.exists(HTML_EXPORT):
         os.makedirs(HTML_EXPORT)
         logging.info(f"Created HTML export directory: {HTML_EXPORT}")
+
+    clear_html_export_folder()
 
     latest_excel_file = get_latest_excel_file(EXCEL_FOLDER)
     logging.info(f"Found the latest Excel file: {latest_excel_file}")
